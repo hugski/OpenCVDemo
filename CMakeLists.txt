@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 project(OpenCVProject)
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE "Release")
+option(CMAKE_BUILD_TYPE "build type1" "Debug")
 # set(CMAKE_CONFIGURATION_TYPES Debug)
+message("ccc:${CMAKE_BUILD_TYPE}")
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin/")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin/")
 set(SRC "src/")
-
 message(STATUS " source dir :${CMAKE_SOURCE_DIR}")
 
 set(CMAKE_PREFIX_PATH "/usr/local/opt/opencv3/share/OpenCV")
@@ -24,8 +25,12 @@ message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 aux_source_directory(src/setup first)
 message(STATUS "src dir :${SRC}")
+#all the executable depend on the opencv lib
 link_libraries(${OpenCV_LIBS})
 add_executable(DisplayImage ${SRC}/setup/test.cpp)
 add_executable(FlipImage ${SRC}/setup/main.cpp)
-# target_link_libraries(DisplayImage ${OpenCV_LIBS})
-
+#copy the res files to the executable file
+add_custom_command(TARGET FlipImage DisplayImage POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/res
+        $<TARGET_FILE_DIR:FlipImage>/images)

@@ -10,6 +10,7 @@ CTestTestfile.cmake
 .vscode/
 bin/
 *.dSYM/
+res/
 # Prerequisites
 *.d
 
@@ -297,3 +298,4 @@ paket-files/
 .idea/
 *.sln.iml
 
+build/
