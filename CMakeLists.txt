@@ -24,11 +24,13 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 aux_source_directory(src/setup first)
+aux_source_directory(src/OpenCV_with_QT cvQT)
 message(STATUS "src dir :${SRC}")
 #all the executable depend on the opencv lib
 link_libraries(${OpenCV_LIBS})
 add_executable(DisplayImage ${SRC}/setup/test.cpp)
 add_executable(FlipImage ${SRC}/setup/main.cpp)
+add_executable(ShowImage_QT ${cvQT})
 #copy the res files to the executable file
 add_custom_command(TARGET FlipImage DisplayImage POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
