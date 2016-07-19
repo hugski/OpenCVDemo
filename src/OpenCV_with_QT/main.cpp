@@ -39,7 +39,7 @@ int main(int ,char* argv[]){
     createTrackbar (track1, mainWin, &tb1_value, 100, tb1_Callback);
     createButton(checkbox, checkboxCallBack, 0, QT_CHECKBOX);
     createButton(pushbutton, pushbuttonCallBack, (void *)&font, QT_PUSH_BUTTON);
-    createTrackbar(track2, mainWin, &tb2_value, 50, tb2_Callback);
+    createTrackbar(track2, "" ,&tb2_value, 50, tb2_Callback);
     createButton(radiobox1, radioboxCallBack, 
             (void *) radiobox1, QT_RADIOBOX);
     createButton(radiobox2, radioboxCallBack,

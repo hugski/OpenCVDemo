@@ -9,4 +9,6 @@ int main(int argc, char** argv){
     Mat image_1, image_2;
     image_1 = imread(argv[1]);
     image_2 = imread(argv[2]);
+
+    FindDifference
 }

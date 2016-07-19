@@ -9,7 +9,7 @@ message("ccc:${CMAKE_BUILD_TYPE}")
 set(SRC "src/")
 message(STATUS " source dir :${CMAKE_SOURCE_DIR}")
 
-set(CMAKE_PREFIX_PATH "/usr/local/opt/opencv3/share/OpenCV")
+set(CMAKE_PREFIX_PATH "/usr/local/Cellar/opencv_build/share/OpenCV/")
 # Find OpenCV, you may need to set OpenCV_DIR variable
 # to the absolute path to the directory containing OpenCVConfig.cmake file
 # via the command line or GUI
